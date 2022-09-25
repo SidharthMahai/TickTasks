@@ -13,16 +13,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/home"
-            >Home</a
-          >
+          <a class="nav-link" aria-current="page" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/tasks">Tasks</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" routerLink="/about">About</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li *ngIf="tservice.user_name" class="nav-item">
+        <span>Hello, {{tservice.user_name}}</span>
+      </li>
       </ul>
     </div>
   </div>
