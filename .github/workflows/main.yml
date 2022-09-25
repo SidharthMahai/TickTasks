@@ -1,6 +1,9 @@
 name: CI/CD
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+  push:
+    branches:
+      master 
 jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
