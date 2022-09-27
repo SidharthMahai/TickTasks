@@ -14,6 +14,7 @@ public user_name: string;
   onKeyPress(event) {
     if (event.target.value && event.key === "Enter") {
       this.tservice.user_name = event.target.value;
+      this.tservice.clearTasks();
       this.router.navigate(['/', 'tasks'])
     }
   }
