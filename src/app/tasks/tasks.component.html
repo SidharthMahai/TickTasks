@@ -1,33 +1,27 @@
 <br />
-<div class="container text-center">
+
+  <div class="center" style="margin-top: 1%;">
+    <input
+    style="width: 25%"
+    [(ngModel)]="task_name"
+    (keydown)="onKeyPress($event)"
+    autofocus
+    class="form-control form-control-lg name task"
+    type="text"
+    placeholder="Enter your Task here & Press Enter"
+    aria-label=".form-control-lg example"
+    />
+  </div>
+
+
+<div class="container text-center" style="margin-top: 5%">
+
   <div class="row">
-    <div class="col">
-      <div class="card" style="width: 18rem">
+    <div class="col" *ngFor="let task of tservice.tasks">
+      <div class="card" style="width: 18rem; margin-bottom: 2%;" (dblclick)="deleteTask(task)" (click)="changeTaskStatus(task)">
         <div class="card-body">
-          <h5 class="card-title">Task Name</h5>
-          <p class="card-text">
-            Some Description about the task and what i intend to do here
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title">Task Name</h5>
-          <p class="card-text">
-            Some Description about the task and what i intend to do here
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title">Task Name</h5>
-          <p class="card-text">
-            Some Description about the task and what i intend to do here
-          </p>
+           <h5 class="card-title" [ngClass]="{'completed': task.Task_Completed === true}">{{task.Task_Name}}</h5>
+          <footer class="footer">{{task.Task_Created_DateTime | date:'medium'}}</footer>
         </div>
       </div>
     </div>
